@@ -1,0 +1,23 @@
+{
+  "name": "sos1920-l04",
+  "version": "0.0.0",
+  "description": "This is the result of Lab04",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FranZajara/SOS1920-30-LABS.git"
+  },
+  "author": "frazajgom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FranZajara/SOS1920-30-LABS/issues"
+  },
+  "homepage": "https://github.com/FranZajara/SOS1920-30-LABS#readme",
+  "dependencies": {
+    "cool-ascii-faces": "^1.3.4"
+  }
+}
