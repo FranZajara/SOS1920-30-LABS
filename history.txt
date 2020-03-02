@@ -1,0 +1,71 @@
+    1  cd /workspace/l4_labs; clear
+    2  export LANG=en_US.UTF-8;export LANGUAGE=en_US.UTF-8;locale-gen;source ~/.profile; [ ! -f ~/.custom_env ] || source ~/.custom_env; clear;
+    3  cd /workspace/l4_labs; clear
+    4  export LANG=en_US.UTF-8;export LANGUAGE=en_US.UTF-8;locale-gen;source ~/.profile; [ ! -f ~/.custom_env ] || source ~/.custom_env; clear;
+    5  cd /workspace/l4_labs; clear
+    6  echo "# sos1920-30-labs" >> README.md
+    7  git init
+    8  git add README.md
+    9  git commit -m "first commit"
+   10  git config --global user.email "franzajaragomez@gmail.com"
+   11  git config --global user.name "FranZajara"
+   12  git commit -m "first commit"
+   13  git remote add origin https://github.com/FranZajara/SOS1920-30-LABS.git
+   14  git push -u origin master
+   15  git commit
+   16  git push -u origin master
+   17  git pull -rebase
+   18  git push
+   19  git pull
+   20  git push -u origin master
+   21  git push -f origin master
+   22  git checkout -b l04
+   23  git add .
+   24  git commit -m "update md"
+   25  git add .
+   26  git commit -m "update md"
+   27  git push -u origin master
+   28  git pull
+   29  git push -u origin l04
+   30  git pull -u origin l04
+   31  git pull
+   32  git checkout -b master
+   33  git checkout master
+   34  hola
+   35  git push -u origin master
+   36  git commit -m "update md"
+   37  git commit
+   38  git push -u origin master
+   39  git add .
+   40  git commit -m "update md"
+   41  git push -u origin master
+   42  git checkout l04
+   43  git pull
+   44  git pull remote l04
+   45  git fetch l04
+   46  git pull origin l04
+   47  git pull
+   48  git pull origin l04
+   49  git pull origin l04 --allow-unrelated-histories
+   50  git reset --hard
+   51  git pull origin l04 --allow-unrelated-histories
+   52  git add .
+   53  git commit -m "update md"
+   54  git push -u origin l04
+   55  node -v
+   56  npm -v
+   57  ls
+   58  touch index.js
+   59  node index.js
+   60  npm start
+   61  npm install cool-ascii-faces --save
+   62  npm start
+   63  ls
+   64  git add .
+   65  git commit -m "first working version"
+   66  git push
+   67  npm start
+   68  npm install
+   69  npm install express --save
+   70  npm start
+   71  history > history.txt
