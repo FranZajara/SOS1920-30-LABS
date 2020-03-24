@@ -14,7 +14,6 @@ app.get("/cool",(request,response) => {
 });
 
 
-
 var sugarconsume = [
 	{
 		place: "Europe",
@@ -43,13 +42,35 @@ var sugarconsume = [
 	}
 ];
 
+const base = sugarconsume;
+
 const BASE_API_URL = "/api/v1";
+
+
+//DELETE CONTACTS
+	app.delete(BASE_API_URL+"/sugarconsume",(req,res) => {
+		if(sugarconsume.length == 0){
+			res.sendStatus(404, "SUGARCONSUME NOT FOUND");
+			
+		}else{
+			sugarconsume = "";
+			res.sendStatus(200,"OK")
+		}
+	});
+	
 
 //GET CONTACTS
 
 app.get(BASE_API_URL+"/sugarconsume",(req,res) => {
 	res.send(JSON.stringify(sugarconsume, null, 2));
 	console.log("Data sent:"+JSON.stringify(sugarconsume,null,2));
+});
+
+//GET CONTACTS
+
+app.get(BASE_API_URL+"/sugarconsume/loadInitialData",(req,res) => {
+	sugarconsume = base;
+	res.sendStatus(201, "CREATED");
 });
 
 //POST CONTACTS
@@ -83,16 +104,7 @@ app.get(BASE_API_URL+"/sugarconsume/:place",(req,res) => {
 		
 	
 	
-//DELETE CONTACTS
-	app.delete(BASE_API_URL+"/sugarconsume",(req,res) => {
-		if(sugarconsume.length == 0){
-			res.sendStatus(404, "SUGARCONSUME NOT FOUND");
-		}else{
-			sugarconsume = "";
-			res.sendStatus(200,"OK")
-		}
-	});
-	
+
 	
 });
 //PUT CONTACT/XXX
@@ -145,4 +157,3 @@ app.listen(port, () => {
 });
 console.log("Starting server...");
 
-console.log("server ready");
