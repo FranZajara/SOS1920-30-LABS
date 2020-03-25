@@ -110,15 +110,21 @@ app.get(BASE_API_URL+"/sugarconsume/:place",(req,res) => {
 //PUT CONTACT/XXX
 app.put(BASE_API_URL+"/sugarconsume/:place",(req,res) => {
 	var place = req.params.place;
-	if(!place){
+	if(place != sugarconsume.get(place).place){
 		res.sendStatus(404);
 	}
 	else{
 		if(place == ""){
-			res.sendStatus(400, "PLACE DOES NOT EXIST")
-		}else{
-			place == req.body.place;
-			res.sendStatus(200, "PLACE PUT OK")
+			res.sendStatus(400);
+		}
+		else{
+			if(place = req.body.place){
+				var filteredSugarConsume = sugarconsume.filter((c) =>{
+				return (c.place != place);});
+				sugarconsume = filteredSugarConsume;
+				sugarconsume.push(req.body);
+				res.sendStatus(200, "OK");
+			}
 		}
 	}
 	
