@@ -109,27 +109,24 @@ app.get(BASE_API_URL+"/sugarconsume/:place",(req,res) => {
 });
 //PUT CONTACT/XXX
 app.put(BASE_API_URL+"/sugarconsume/:place",(req,res) => {
-	var place = req.params.place;
-	if(place != sugarconsume.get(place).place){
-		res.sendStatus(404);
+	var place = req.params.place
+	var body = req.body;
+	var filteredSugarConsume = sugarconsume.filter((c) => {
+		return (c.place != place);
+	});
+	
+	if(place = req.body.place){
+		sugarconsume = filteredSugarConsume;
+		sugarconsume.push(req.body);
+		res.sendStatus(200, "OK");
+	}else{
+		res.sendStatus(404, "NOT FOUND");
 	}
-	else{
-		if(place == ""){
-			res.sendStatus(400);
-		}
-		else{
-			if(place = req.body.place){
-				var filteredSugarConsume = sugarconsume.filter((c) =>{
-				return (c.place != place);});
-				sugarconsume = filteredSugarConsume;
-				sugarconsume.push(req.body);
-				res.sendStatus(200, "OK");
-			}
-		}
+	
 	}
 	
 	
-});
+);
 //DELETE CONTACT/XXX
 
 app.delete(BASE_API_URL+"/sugarconsume/:place",(req,res) => {
