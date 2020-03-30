@@ -42,7 +42,33 @@ var sugarconsume = [
 	}
 ];
 
-const base = sugarconsume;
+const base = [
+	{
+		place: "Europe",
+		sugarconsume: 18800
+		
+	},
+	{
+		place: "China",
+		sugarconsume: 17500
+		
+	},
+	{
+		place: "India",
+		sugarconsume: 28000
+		
+	},
+	{
+		place: "Turkey",
+		sugarconsume: 2300
+		
+	},
+	{
+		place: "Ukraine",
+		sugarconsume: 1445
+		
+	}
+];
 
 const BASE_API_URL = "/api/v1";
 
