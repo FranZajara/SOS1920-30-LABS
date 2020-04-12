@@ -12,64 +12,190 @@ module.exports = function (app) {
 					autoload: true
 });
 	 
-	 
-	/* app.get("/cool",(request,response) => {
-	response.send("<html>"+cool()+"</html>");
-});*/
+	
 	
 	var sugarconsume = [
 	{
 		place: "Europe",
-		sugarconsume: 18800
+		sugarconsume: 18800,
+		year:  2017
 		
 	},
 	{
 		place: "China",
-		sugarconsume: 17500
+		sugarconsume: 17500,
+		year:  2017
 		
 	},
 	{
 		place: "India",
-		sugarconsume: 28000
+		sugarconsume: 28000,
+		year:  2017
 		
 	},
 	{
 		place: "Turkey",
-		sugarconsume: 2300
+		sugarconsume: 2300,
+		year:  2017
 		
 	},
 	{
 		place: "Ukraine",
-		sugarconsume: 1445
+		sugarconsume: 1580,
+		year: 2017
+		
+	},
+		{
+		place: "Europe",
+		sugarconsume: 18800,
+		year:  2016
+		
+	},
+	{
+		place: "China",
+		sugarconsume: 17700,
+		year:  2016
+		
+	},
+	{
+		place: "India",
+		sugarconsume: 28000,
+		year:  2016
+		
+	},
+	{
+		place: "Turkey",
+		sugarconsume: 2300,
+		year:  2016
+		
+	},
+	{
+		place: "Ukraine",
+		sugarconsume: 1580,
+		year: 2016
+		
+	},{
+		place: "Europe",
+		sugarconsume: 18700,
+		year:  2015
+		
+	},
+	{
+		place: "China",
+		sugarconsume: 17558,
+		year:  2015
+		
+	},
+	{
+		place: "India",
+		sugarconsume: 27195,
+		year:  2015
+		
+	},
+	{
+		place: "Turkey",
+		sugarconsume: 2300,
+		year:  2015
+		
+	},
+	{
+		place: "Ukraine",
+		sugarconsume: 1587,
+		year: 2015
 		
 	}
+		
 ];
 	 
 	 
 	const base = [
-	{
+		{
 		place: "Europe",
-		sugarconsume: 18800
+		sugarconsume: 18800,
+		year:  2017
 		
 	},
 	{
 		place: "China",
-		sugarconsume: 17500
+		sugarconsume: 17500,
+		year:  2017
 		
 	},
 	{
 		place: "India",
-		sugarconsume: 28000
+		sugarconsume: 28000,
+		year:  2017
 		
 	},
 	{
 		place: "Turkey",
-		sugarconsume: 2300
+		sugarconsume: 2300,
+		year:  2017
 		
 	},
 	{
 		place: "Ukraine",
-		sugarconsume: 1445
+		sugarconsume: 1580,
+		year: 2017
+		
+	},
+		{
+		place: "Europe",
+		sugarconsume: 18800,
+		year:  2016
+		
+	},
+	{
+		place: "China",
+		sugarconsume: 17700,
+		year:  2016
+		
+	},
+	{
+		place: "India",
+		sugarconsume: 28000,
+		year:  2016
+		
+	},
+	{
+		place: "Turkey",
+		sugarconsume: 2300,
+		year:  2016
+		
+	},
+	{
+		place: "Ukraine",
+		sugarconsume: 1580,
+		year: 2016
+		
+	},{
+		place: "Europe",
+		sugarconsume: 18700,
+		year:  2015
+		
+	},
+	{
+		place: "China",
+		sugarconsume: 17558,
+		year:  2015
+		
+	},
+	{
+		place: "India",
+		sugarconsume: 27195,
+		year:  2015
+		
+	},
+	{
+		place: "Turkey",
+		sugarconsume: 2300,
+		year:  2015
+		
+	},
+	{
+		place: "Ukraine",
+		sugarconsume: 1587,
+		year: 2015
 		
 	}
 ];
@@ -194,6 +320,29 @@ app.delete(BASE_API_URL+"/sugarconsume/:place",(req,res) => {
 			sugarconsume = "";
 			res.sendStatus(200,"OK")
 		}
+	});
+	
+	
+	
+	
+	
+	
+	//DELETE SUGARCONSUME/XXX/YYYY
+		app.delete(BASE_API_URL+"/sugarconsume/:place/:year", (req,res)=>{
+
+		var place = req.params.place;
+		var year = parseInt(req.params.year);
+
+		db.find({"place":place, "year":year},(error, sugarconsume)=>{			 
+			if(sugarconsume.length == 0){
+				console.log("Error 404, no se ha encontrado el recurso");
+				res.sendStatus(404);
+			}else{
+				console.log("borrando un solo recurso");
+                res.sendStatus(200);
+				db.remove({ "place":place, "year":year });
+			}
+		})
 	});
 	
 	 
